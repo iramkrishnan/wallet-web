@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Table, Pagination, Button } from 'semantic-ui-react';
+import { Table, Pagination, Button, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 import moment from 'moment';
 import csvDownload from 'json-to-csv-export';
@@ -69,8 +69,10 @@ const WalletTransactions = () => {
   return (
     <div>
       <WalletDetails walletDetails={walletDetails} link="/" linkName="Home" />
-      Download CSV
-      <Button onClick={downloadCsv} size="large" icon="cloud download" />
+      <Segment floated="right">
+        Download CSV{' '}
+        <Button onClick={downloadCsv} size="large" icon="cloud download" />
+      </Segment>
       <Table fixed striped sortable>
         <Table.Header>
           <Table.Row>

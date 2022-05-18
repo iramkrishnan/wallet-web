@@ -88,7 +88,7 @@ const AddTransaction = ({ walletId, setWalletDetails, walletDetails }) => {
               value={description}
               onChange={(e, { value }) => setDescription(value)}
             />
-            <Label color="green" horizontal>
+            <Label color="green" horizontal style={{ 'margin-right': '10px' }}>
               Credit
             </Label>
             <Radio
@@ -97,7 +97,11 @@ const AddTransaction = ({ walletId, setWalletDetails, walletDetails }) => {
               checked={type === 'DEBIT'}
               onChange={(e, { value }) => setType(value)}
             />
-            <Label color="red" horizontal>
+            <Label
+              color="red"
+              horizontal
+              style={{ 'margin-left': '10px', 'margin-bottom': '10px' }}
+            >
               Debit
             </Label>
 
