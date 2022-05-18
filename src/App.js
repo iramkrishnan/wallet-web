@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 
 import Home from './containers/Home';
-import Transactions from './containers/Transactions';
+import WalletTransactions from './containers/WalletTransactions';
 import NotFound404 from './containers/NotFound404';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
           <PrivateRoute
             exact
             path="/transactions"
-            component={Transactions}
+            component={WalletTransactions}
           ></PrivateRoute>
 
           <Route component={NotFound404} />
