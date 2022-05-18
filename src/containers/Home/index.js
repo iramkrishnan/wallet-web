@@ -22,14 +22,18 @@ const Home = () => {
     if (walletId) {
       getWalletDetails();
     }
-  }, []);
+  }, [walletIdExists]);
 
   return !walletIdExists ? (
     <CreateWallet setWalletIdExists={setWalletIdExists} />
   ) : (
     <>
       <WalletDetails walletDetails={walletDetails} />
-      <AddTransaction />
+      <AddTransaction
+        walletId={walletId}
+        setWalletDetails={setWalletDetails}
+        walletDetails={walletDetails}
+      />
     </>
   );
 };
