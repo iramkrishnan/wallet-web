@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 import { API_URL } from '../../../constants';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreateWallet = ({ setWalletIdExists }) => {
-  const [name, setName] = useState('');
-  const [balance, setBalance] = useState(0);
-  const [error, setError] = useState('');
+  const [name, setName] = useState();
+  const [balance, setBalance] = useState();
   const [loading, setLoading] = useState(false);
 
   const registerWallet = async (e) => {
     e.preventDefault();
-    setError('');
     setLoading(true);
 
     axios
@@ -27,7 +27,15 @@ const CreateWallet = ({ setWalletIdExists }) => {
       .catch((err) => {
         const error = err.response.data.response;
         setLoading(false);
-        setError(Object.values(error)[0]);
+        toast.error(Object.values(error)[0], {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
 
@@ -56,12 +64,11 @@ const CreateWallet = ({ setWalletIdExists }) => {
               value={balance}
               onChange={(e, { value }) => setBalance(value)}
             />
-            {error}
+            <ToastContainer />
 
             <Button color="blue" fluid size="large" loading={loading}>
               Create Wallet
             </Button>
-            {`loading ==> ${loading}`}
           </Segment>
         </Form>
       </Grid.Column>
