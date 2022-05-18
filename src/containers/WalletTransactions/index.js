@@ -54,7 +54,9 @@ const WalletTransactions = () => {
   const downloadCsv = () => {
     axios
       .get(`${API_URL}/transactions?walletId=${walletId}`)
-      .then((rs) => csvDownload(rs.data.response.transactions, 'test.csv'));
+      .then((rs) =>
+        csvDownload(rs.data.response.transactions, 'transactions.csv')
+      );
   };
 
   const handleSort = (sortColumn) => {
