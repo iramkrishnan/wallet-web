@@ -1,17 +1,14 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Navbar, Nav } from 'react-bootstrap';
 
 const WalletDetails = ({ walletDetails }) => (
-  <div style={{ display: 'flex', items: 'center' }}>
-    <Card>
-      <Card.Content>
-        <Card.Header>{walletDetails?.name}</Card.Header>
-        <Card.Description>
-          Wallet balance: ₹{walletDetails?.balance}
-        </Card.Description>
-      </Card.Content>
-    </Card>
-  </div>
+  <Navbar bg="primary" variant="dark" className="mb-5">
+    <Nav className="mr-auto">
+      <Nav.Link href="/transactions">View Transactions</Nav.Link>
+      <Nav.Link className="mr-auto"> {walletDetails?.name}</Nav.Link>
+      <Nav.Link className="mr-auto"> ₹ {walletDetails?.balance}</Nav.Link>
+    </Nav>
+  </Navbar>
 );
 
 export default WalletDetails;
