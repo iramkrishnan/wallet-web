@@ -17,7 +17,7 @@ const CreateWallet = ({ setWalletIdExists }) => {
     axios
       .post(`${API_URL}/setup`, {
         name,
-        balance,
+        balance: balance || 0,
       })
       .then((res) => {
         localStorage.setItem('walletId', res.data.response.id);
