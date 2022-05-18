@@ -1,2 +1,2 @@
 # wallet-web
-GoHighLevel Coding Challenge - Backend
+GoHighLevel Coding Challenge - Frontend
