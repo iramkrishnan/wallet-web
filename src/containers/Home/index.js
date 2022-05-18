@@ -28,7 +28,11 @@ const Home = () => {
     <CreateWallet setWalletIdExists={setWalletIdExists} />
   ) : (
     <>
-      <WalletDetails walletDetails={walletDetails} />
+      <WalletDetails
+        walletDetails={walletDetails}
+        link="/transactions"
+        linkName="Wallet Transactions"
+      />
       <AddTransaction
         walletId={walletId}
         setWalletDetails={setWalletDetails}
